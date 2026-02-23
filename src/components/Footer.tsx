@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <img src={logo} alt="Poly Privacy" className="h-7 w-auto invert" />
+              <img src={logo} alt="Poly Privacy" className="h-7 w-auto" />
               <span className="text-xl font-bold tracking-tight text-foreground">Poly <span className="text-gradient">Privacy</span></span>
             </Link>
             <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
