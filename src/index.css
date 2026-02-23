@@ -34,13 +34,15 @@
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 100% 96%) 50%, hsl(210 100% 92%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 100% 97%) 40%, hsl(210 100% 93%) 100%);
     --gradient-cta: linear-gradient(135deg, hsl(210 100% 65%) 0%, hsl(210 100% 55%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 100% 98%) 100%);
+    --gradient-section-alt: linear-gradient(180deg, hsl(210 100% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-mesh: radial-gradient(ellipse at 20% 50%, hsl(210 100% 93% / 0.5) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, hsl(210 100% 90% / 0.3) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, hsl(210 100% 95% / 0.4) 0%, transparent 50%);
     --shadow-card: 0 1px 3px 0 hsl(210 24% 87% / 0.3), 0 1px 2px -1px hsl(210 24% 87% / 0.3);
     --shadow-card-hover: 0 10px 25px -5px hsl(210 100% 65% / 0.12), 0 4px 10px -2px hsl(210 100% 65% / 0.08);
     --shadow-button: 0 4px 14px 0 hsl(210 100% 65% / 0.3);
+    --shadow-lg: 0 20px 50px -12px hsl(210 100% 65% / 0.15);
 
     --success: 142 71% 45%;
     --success-foreground: 0 0% 100%;
@@ -63,6 +65,10 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -82,6 +88,14 @@
     background: var(--gradient-card);
   }
 
+  .gradient-section-alt {
+    background: var(--gradient-section-alt);
+  }
+
+  .gradient-mesh {
+    background: var(--gradient-mesh);
+  }
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
@@ -94,17 +108,42 @@
     box-shadow: var(--shadow-button);
   }
 
+  .shadow-lg-primary {
+    box-shadow: var(--shadow-lg);
+  }
+
   .hover-lift {
     @apply transition-all duration-300 ease-out;
   }
 
   .hover-lift:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 70%));
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(hsl(210 24% 91% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(210 24% 91% / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-dots-pattern {
+    background-image: radial-gradient(hsl(210 100% 65% / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .floating-orb {
+    @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none;
+    background: hsl(210 100% 75%);
   }
 }
